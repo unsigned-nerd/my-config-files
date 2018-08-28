@@ -1,0 +1,15 @@
+caption always "%{+b bk}$USER@%{wk}%H | %{yk}(load: %l)  %-21=%{wk}%D %d.%m.%Y %0c"
+hardstatus alwayslastline "%{wr}%n%f %t %{kw} | %?%-Lw%?%{wb}%n*%f %t%?(%u)%?%{kw}%?%+Lw%? %{wk}"
+
+# focus and resizing vi-like bindings
+bind K eval "focus top"
+bind k eval "focus up"
+bind j eval "focus down"
+bind J eval "focus bottom"
+bind h eval "focus left"
+bind l eval "focus right"
+bind e eval "resize +20"
+bind E eval "resize +5"
+bind t eval "resize -20"
+bind T eval "resize -5"
+bind r eval "resize ="

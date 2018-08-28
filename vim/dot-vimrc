@@ -1,0 +1,76 @@
+" enable smart search (ignore case)
+set ic
+
+" disable syntax highlight for dasung, 'on', otherwise
+syntax off
+
+" all about indenting
+"set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+
+" y: yank, p: paste, P: paste here, d: don't know yet
+" for window manager's clipboard (ctrl+c, ctrl+p)
+let mapleader = "\<Space>"
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" for x window's clipboard, use:
+" - copy, "*y
+" - paste, "*p
+
+set foldmethod=marker
+
+" Thunderbird viewer wraps at 72 chars.
+" http://kb.mozillazine.org/Plain_text_e-mail_-_Thunderbird
+set colorcolumn=73
+highlight ColorColumn ctermbg=3
+set textwidth=72 " use gq in visual mode to auto indent long lines
+
+" vimdiff
+"set diffopt=horizontal
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=White
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=White
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=White
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=White
+
+" in order to enter unicode character using ctrl+shift+u+<number>
+set encoding=utf-8
+
+set modeline
+set modelines=5
+
+au FileType gitcommit set syn=no
+
+" http://vim.wikia.com/wiki/Automatically_set_screen_title
+let &titlestring = expand("%:t")
+if &term == "screen"
+  set t_ts=k
+  set t_fs=\
+endif
+if &term == "screen" || &term == "xterm"
+  set title
+endif
+
+"" This saves the buffer whenever text is changed
+"" ('http://stackoverflow.com/questions/6991638/how-to-auto-save-a-',
+"" 'file-every-1-second-in-vim')
+"autocmd InsertLeave * write
+
+set relativenumber
+
+execute pathogen#infect()
+
+let g:NERDTreeWinSize = 23
+let NERDTreeMapHelp='<f1>'
+let NERDTreeIgnore = ['\.pyc$', '\.log$', '\.aux$', '\.lof$',
+  \ '\.lot$','\.toc$', '\.pdf$', '\.tdo$', '__pycache__$', 'db.sqlite3']
+
+"" this way, the comments are in lighther colour
+"set background=dark "comment for dasung monitor
