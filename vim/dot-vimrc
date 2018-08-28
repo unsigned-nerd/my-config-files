@@ -33,6 +33,11 @@ set colorcolumn=73
 highlight ColorColumn ctermbg=3
 set textwidth=72 " use gq in visual mode to auto indent long lines
 
+augroup LispTextWidth " {
+  autocmd!
+  autocmd BufNewFile,BufRead *.lisp set colorcolumn=101 textwidth=100
+augroup END " }
+
 " vimdiff
 "set diffopt=horizontal
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=White
